@@ -12,7 +12,7 @@ Highcharts.theme = {
 }
 Highcharts.setOptions(Highcharts.theme)
 
-Highcharts.chart('chart', {
+Highcharts.chart('graf-ano', {
     title: {
         text: '{{titulo}}'
     },
@@ -20,6 +20,30 @@ Highcharts.chart('chart', {
         type: 'datetime',
     },
     yAxis: [{
+        labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        title: {
+            text: 'Número de Fornecedores',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+    }, {
+        labels: {
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        title: {
+            text: 'Total Pago (R$)',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+    }, {
         labels: {
             style: {
                 color: Highcharts.getOptions().colors[4]
@@ -34,30 +58,6 @@ Highcharts.chart('chart', {
         min: 0,
         max: 100,
         opposite: true,
-    }, {
-        labels: {
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-        title: {
-            text: 'Número de Fornecedores',
-            style: {
-                color: Highcharts.getOptions().colors[0]
-            }
-        },
-    }, {
-        labels: {
-            style: {
-                color: Highcharts.getOptions().colors[1]
-            }
-        },
-        title: {
-            text: 'Total Pago (R$)',
-            style: {
-                color: Highcharts.getOptions().colors[1]
-            }
-        },
     }],
     tooltip: {
         valueDecimals: 0,
@@ -65,5 +65,46 @@ Highcharts.chart('chart', {
         shared: true,
     },
     series: {{dados|safe}}
+})
+
+
+Highcharts.chart('graf-mes', {
+    title: {
+        text: '{{titulo}}'
+    },
+    xAxis: {
+        type: 'datetime',
+    },
+    yAxis: [{
+        labels: {
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        title: {
+            text: 'Número de Fornecedores',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+    }, {
+        labels: {
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        title: {
+            text: 'Total Pago (R$)',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+    }],
+    tooltip: {
+        valueDecimals: 0,
+        xDateFormat: '%Y/%m',
+        shared: true,
+    },
+    series: {{dados_mes|safe}}
 })
 </script>

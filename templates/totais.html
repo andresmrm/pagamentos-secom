@@ -6,7 +6,14 @@
     <h2>Totais ao Longo dos Anos</h2>
     <p>No gráfico abaixo representamos, através das barras, o número de fornecedores por ano e o valor total pago a eles. Já as linhas dizem quanto porcento desse total foi para os maiores fornecedores. Lembrando que os gastos no ano atual ainda devem aumentar, uma vez que ele ainda não acabou. Dados de {{datas[0]}} à {{datas[-1]}}. {{aviso_grupos()}}</p>
 </div>
-<div id="chart" class="mt-2"></div>
+
+<div id="graf-ano" class="mt-2"></div>
+
+<div class="bloco-centrado mt-2">
+    <h2>Totais ao Longo dos Meses</h2>
+</div>
+
+<div id="graf-mes" class="mt-2"></div>
 {% include 'grafico_multi.html' %}
 
 <div class="bloco-centrado">

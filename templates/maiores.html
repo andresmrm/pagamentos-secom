@@ -8,4 +8,6 @@
 <div id="graf-ano"></div>
 <div id="graf-mes"></div>
 {% include 'grafico.html' %}
+{% from 'grafico_mes.html' import graf_mes %}
+{{ graf_mes(dados_mes, 'Mensal') }}
 {% endblock %}

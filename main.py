@@ -55,12 +55,10 @@ def maiores():
         'maiores.html',
         pagina_atual='maiores',
         n_maiores=n,
-        dados_ano=json.dumps(pr.serializar_categorias(
-            pr.total_por_maiores_fornecedores_globais_por_data(df, 'Ano', n),
-            'Ano')),
-        dados_mes=json.dumps(pr.serializar_categorias(
-            pr.total_por_maiores_fornecedores_globais_por_data(df, 'Mês', n),
-            'Mês')),
+        dados_ano=pr.total_por_maiores_fornecedores_globais_por_data(
+            df, 'Ano', n),
+        dados_mes=pr.total_por_maiores_fornecedores_globais_por_data(
+            df, 'Mês', n),
     )
 
 
@@ -81,9 +79,11 @@ def totais():
     return render_template(
         'totais.html',
         pagina_atual='totais',
-        dados=json.dumps(pr.analises_por_data(df, 'Ano')),
+        dados=pr.analises_por_data(df, 'Ano', 20, [.5, .1, .01], 'column'),
+        dados_mes=pr.analises_por_data(df, 'Mês'),
         datas=pr.listar_datas(df, 'Mês'),
-        fornecedores=pr.total_por_fornecedor(df).to_dict('split')['data'])
+        fornecedores=pr.total_por_fornecedor(df).to_dict('split')['data'],
+    )
 
 
 if __name__ == "__main__":
