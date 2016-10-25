@@ -4,6 +4,8 @@
 from flask_frozen import Freezer
 from main import app
 
+app.config['FREEZER_DESTINATION'] = 'docs'
+
 freezer = Freezer(app)
 
 if __name__ == '__main__':
