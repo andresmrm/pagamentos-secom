@@ -5,6 +5,8 @@ from flask_frozen import Freezer
 from main import app
 
 app.config['FREEZER_DESTINATION'] = 'docs'
+app.config['FREEZER_BASE_URL'] = \
+    'https://andresmrm.github.io/pagamentos-secom/'
 
 freezer = Freezer(app)
 
