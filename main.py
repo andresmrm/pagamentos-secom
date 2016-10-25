@@ -79,7 +79,8 @@ def totais():
     return render_template(
         'totais.html',
         pagina_atual='totais',
-        dados=pr.analises_por_data(df, 'Ano', 20, [.5, .1, .01], 'column'),
+        dados=pr.analises_por_data(
+            df, 'Ano', [20, 1], [.5, .1, .01], 'column'),
         dados_mes=pr.analises_por_data(df, 'Mês'),
         datas=pr.listar_datas(df, 'Mês'),
         fornecedores=pr.total_por_fornecedor(df).to_dict('split')['data'],

@@ -97,7 +97,7 @@ def int_data(texto, tipo):
             .timestamp())*1000)
 
 
-def analises_por_data(df, data, n=None, fracoes=None, tipo='line'):
+def analises_por_data(df, data, ns=None, fracoes=None, tipo='line'):
     '''
     Retorna algumas análises nos dados.
     n: n maiores linhas que se deseja comparar
@@ -147,17 +147,17 @@ def analises_por_data(df, data, n=None, fracoes=None, tipo='line'):
             }
         } for f in fracoes]
 
-    if n:
-        porcentual_n_maiores = (agrup.tail(n).groupby(data).sum()
-                                / totais_data * 100)
-        dados.append({
-            'name': 'Porcentagem acumulada por %s maiores' % n,
-            'data': formatar(porcentual_n_maiores['Valor Bruto']),
+    if ns:
+        dados += [{
+            'name': ('Porcentagem acumulada por ' +
+                     ('%s maiores' % n if n > 1 else 'maior')),
+            'data': formatar((agrup.tail(n).groupby(data).sum()
+                              / totais_data * 100)['Valor Bruto']),
             'yAxis': 2,
             'tooltip': {
                 'valueSuffix': '%',
             }
-        })
+        } for n in ns]
 
     return json.dumps([OrderedDict(sorted(categoria.items()))
                        for categoria in dados])
