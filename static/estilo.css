@@ -1,0 +1,13 @@
+.bloco-centrado {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+.float-right {
+    float: right;
+}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Totais - {% endblock %}
+{% block content %}
+
+<div class="bloco-centrado">
+    <h2>Totais ao Longo dos Anos</h2>
+    <p>No gráfico abaixo representamos, através das barras, o número de fornecedores por ano e o valor total pago a eles. Já as linhas dizem quanto porcento desse total foi para os maiores fornecedores. Lembrando que os gastos no ano atual ainda devem aumentar, uma vez que ele ainda não acabou. Dados de {{datas[0]}} à {{datas[-1]}}. {{aviso_grupos()}}</p>
+</div>
+<div id="chart" class="mt-2"></div>
+{% include 'grafico_multi.html' %}
+
+<div class="bloco-centrado">
+    <h2 class="mt-3">Totais por Fornecedor</h2>
+    <p>Totais recebidos por cada fornecedor no período dos dados fornecidos (de {{datas[0]}} à {{datas[-1]}}). {{aviso_grupos()}}</a></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Fornecedor</th>
+                <th>Pagamentos (R$)</th>
+            </tr>
+        </thead>
+        <tbody>
+        # for fornecedor, valor in fornecedores:
+            <tr>
+                <td>{{fornecedor}}</td>
+                <td>{{valor|sep_float}}</td>
+            </tr>
+        # endfor
+        </tbody>
+    </table>
+</div>
+{% endblock %}

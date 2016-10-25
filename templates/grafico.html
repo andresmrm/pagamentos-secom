@@ -1,0 +1,68 @@
+<script type="text/javascript">
+
+Highcharts.theme = {
+    colors:[
+        "#00b900",
+        "#7e13cc",
+        "#a7ff3f",
+        "#ff52eb",
+        "#ffd81e",
+        "#0020a8",
+        "#ffd68c",
+        "#917fff",
+        "#426300",
+        "#ff334b",
+        "#0194a0",
+        "#900014",
+        "#79c3ff",
+        "#6a3600",
+        "#0064bd",
+        "#ff9982",
+        "#1c002f",
+        "#ffa9db",
+        "#ab007c",
+        "#9a6f8a"
+    ]
+}
+Highcharts.setOptions(Highcharts.theme)
+
+Highcharts.chart('graf-ano', {
+    title: {
+        text: 'Anual'
+    },
+    xAxis: {
+        type: 'datetime',
+    },
+    yAxis: {
+        title: {
+            text: 'Total por ano (R$)'
+        }
+    },
+    tooltip: {
+        valueDecimals: 0,
+        xDateFormat: '%Y',
+        valuePrefix: 'R$ ',
+    },
+    series: {{dados_ano|safe}}
+})
+
+Highcharts.chart('graf-mes', {
+    title: {
+        text: 'Mensal'
+    },
+    xAxis: {
+        type: 'datetime',
+    },
+    yAxis: {
+        title: {
+            text: 'Total por mês (R$)'
+        }
+    },
+    tooltip: {
+        valueDecimals: 0,
+        xDateFormat: '%Y/%m',
+        valuePrefix: 'R$ ',
+    },
+    series: {{dados_mes|safe}}
+})
+</script>
