@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-import json
 from collections import OrderedDict
 from datetime import datetime as dt
 import pandas as pd
@@ -130,7 +129,7 @@ def analises_por_data(df, data, n=20, fracoes=[.5, .1, .01]):
 
     datas = [int_data(x, tipo=data) for x in listar_datas(df, data)]
 
-    return [{
+    dados = [{
         'name': 'Quantidade de fornecedores',
         'type': 'column',
         'data': formatar(contagens),
@@ -157,24 +156,14 @@ def analises_por_data(df, data, n=20, fracoes=[.5, .1, .01]):
         }
     }]
 
+    return [OrderedDict(sorted(categoria.items())) for categoria in dados]
+
 
 def serializar_categorias(df, data):
-    return [{
-        'name': i,
-        'data': [(int_data(m, data), v)
-                 for m, v in zip(d[data], d['Valor Bruto'])]
-    } for i, d in df.groupby('Fornecedor').aggregate(
+    return [OrderedDict([
+        ('name', i),
+        ('data', [(int_data(m, data), v)
+                  for m, v in zip(d[data], d['Valor Bruto'])])
+    ]) for i, d in sorted(df.groupby('Fornecedor').aggregate(
         lambda x: x.tolist()
-    ).to_dict('index').items()]
-
-# saida = {
-#     'totalMes': analises_por_data(df, 'Ano'),
-#     # 'totalMes': serializar_categorias(
-#     #     total_por_maiores_fornecedores_globais_por_data(df, 'Mês')),
-#     # 'totalAno': total_por_ano(df)
-#     # 'totalMes': total_por_mes(df)
-# }
-
-# arq = open('dados.json', 'w')
-# json.dump(saida, arq)
-# arq.close()
+    ).to_dict('index').items())]
