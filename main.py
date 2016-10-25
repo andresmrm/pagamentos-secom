@@ -29,7 +29,7 @@ def aviso_grupos():
                   ' listado nessa outra página.</a>')
 
 
-@app.route('/static/<path:path>')
+@app.route('/<path:path>')
 def arquivos(path):
     return send_from_directory('static', path)
 
