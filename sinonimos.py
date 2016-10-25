@@ -35,6 +35,7 @@ apelidos = {
     ],
     'Folha': [
         'EMPRESA FOLHA DA MANHÃ S/A',
+        'UNIVERSO ONLINE S.A',
     ],
     'Estadão': [
         'S/A O ESTADO DE S.PAULO',
@@ -54,9 +55,6 @@ apelidos = {
     ],
     'Facebook': [
         'FACEBOOK SERVICOS ONLINE DO BRASIL LTDA',
-    ],
-    'UOL': [
-        'UNIVERSO ONLINE S.A',
     ],
     'RedeTV': [
         'TV ÔMEGA LTDA',
