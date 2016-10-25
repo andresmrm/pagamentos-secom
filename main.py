@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-import json
 import locale
 from flask import Flask, render_template, url_for, Markup, send_from_directory
 import processador as pr
