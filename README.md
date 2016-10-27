@@ -2,6 +2,8 @@
 
 Visualizações de pagamentos feitos pela Secretaria de Comunicação Social da Presidência da República (SECOM).
 
+https://andresmrm.github.io/pagamentos-secom/
+
 # Rodando localmente
 
 Clone esse repositório e, assumindo que você tem `virtualenv` instalado, faça:
