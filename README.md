@@ -19,6 +19,10 @@ Para gerar uma versão estática do site faça:
 
 # Atualizando os dados
 
-1. Baixe a planilha do site da SECOM substituindo o arquivo `Planilha_Exportacao.xlsx` antigo
-2. Remova o arquivo `planilha.hdf`
-3. Regere o site com: `python congelar.py`
+1. Abrir link: https://sistema1.planalto.gov.br/secomweb2/demanda/execucaocontratual
+2. Escolher "veiculação", máximo período possível e preencher captcha
+3. Clicar em "gerar arquivo excel"
+4. Esperar, esperar, esperar...
+4. Baixar substituindo o arquivo `Planilha_Exportacao.xlsx` antigo
+5. Remova o arquivo `planilha.hdf`
+6. Regere o site com: `python congelar.py`
